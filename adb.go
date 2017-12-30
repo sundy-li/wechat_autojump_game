@@ -18,7 +18,8 @@ const (
 )
 
 func jump(distance float64) {
-	pressTime := distance * 1.39
+	//这个系数好难调,好像不同机型不一样...
+	pressTime := distance * 1.392
 	runAdb("shell", ADB_TAP_COMMAND+" "+strconv.Itoa(int(pressTime)))
 }
 

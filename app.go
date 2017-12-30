@@ -12,14 +12,17 @@ import (
 
 var (
 	filename = "wechat_jump.png"
+
+	SleepMills time.Duration = 1000
 )
 
 func Run() {
+	// filename = "tmp_jump3.png"
 	// currentX, currentY, nextX, nextY := getLocation(filename)
 	// println(currentX, currentY, nextX, nextY)
 	// return
 	for true {
-		time.Sleep(1 * time.Second)
+		time.Sleep(SleepMills * time.Millisecond)
 		saveScreenShot(filename)
 		currentX, currentY, nextX, nextY := getLocation(filename)
 		if currentX == 0 || currentY == 0 {
