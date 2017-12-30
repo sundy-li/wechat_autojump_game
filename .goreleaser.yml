@@ -9,7 +9,7 @@ builds:
       - amd64
 # Archive customization
 archive:
-  format: tar.gz
+  format: zip
   replacements:
     amd64: 64-bit
     darwin: macOS
