@@ -37,8 +37,6 @@ Golang实现的自动玩微信跳一跳
 - 利用adb shell发送input swipe事件来跳跃
 
 #### 展示
-运行成功后状态:![](adb.png =320*480)
-
 实验结果:![](game.png =320*480)
 
 
