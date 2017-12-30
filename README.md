@@ -2,6 +2,7 @@
 Golang实现的自动玩微信跳一跳
 
 
+
 #### 准备条件
 - 需要安装adb驱动, 这里有一篇国外作者的[教程](https://www.xda-developers.com/install-adb-windows-macos-linux/)
 - 手机连接电脑后,进入设置-开发者选项-打开usb调试
@@ -24,13 +25,16 @@ Golang实现的自动玩微信跳一跳
 	go run main.go
 ```
 
-	
 
 
 #### 原理
 - 利用adb shell截图游戏屏幕
 - 读取截屏图片,获取当前位置,下一跳位置,计算跳动距离和触屏事件
 - 利用adb shell发送input swipe事件来跳跃
+
+
+![跳一跳](game.png)
+
 
 
 
