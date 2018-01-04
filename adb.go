@@ -2,9 +2,10 @@ package wechat_autojump_game
 
 import (
 	"bytes"
+	"fmt"
 	"log"
+	"math/rand"
 	"os/exec"
-	"strconv"
 	"strings"
 )
 
@@ -15,13 +16,10 @@ var (
 	Speed float64 = 1.392
 )
 
-const (
-	ADB_TAP_COMMAND = "input swipe 510 953 510 953"
-)
-
 func jump(distance float64) {
 	pressTime := distance * Speed
-	runAdb("shell", ADB_TAP_COMMAND+" "+strconv.Itoa(int(pressTime)))
+	x, y := randomPosition()
+	runAdb("shell", fmt.Sprintf("input swipe %d %d %d %d %d", x, y, x, y, int(pressTime)))
 }
 
 func saveScreenShot(filename string) {
@@ -43,4 +41,12 @@ func runAdb(args ...string) {
 	if err != nil {
 		log.Fatalf("adb %s: %v", strings.Join(args, " "), err.Error())
 	}
+}
+
+//x : 350 - 450
+//y : 850 - 950
+func randomPosition() (x int, y int) {
+	x = 350 + rand.Intn(100)
+	y = 850 + rand.Intn(100)
+	return
 }
